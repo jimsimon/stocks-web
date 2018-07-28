@@ -1,4 +1,4 @@
-import {SET_TOKEN} from '../action-types/tokens'
+import {SET_TOKEN} from './action-types'
 
 export default function reducer (state = {}, {type, payload, error}) {
   if (error) {
@@ -8,7 +8,7 @@ export default function reducer (state = {}, {type, payload, error}) {
   switch (type) {
     case SET_TOKEN:
       return Object.assign({}, state, {
-        user: payload
+        token: payload
       })
 
     default:

@@ -41,7 +41,7 @@ export default serviceMap => (getState, dispatch) => next => async action => {
 export function callService (
   service,
   method,
-  params,
+  params = [],
   {
     context,
     onSuccessActionCreator,

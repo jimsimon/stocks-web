@@ -1,9 +1,9 @@
 import Router from 'middle-router'
-import {selectUserToken} from "../store/selectors/tokens";
+import {selectToken} from "../store/branches/authentication/selectors";
 
 export default Router()
   .use(async ({router, context: { store }, path, resolve}) => {
-    const loggedIn = selectUserToken(store.getState())
+    const loggedIn = selectToken(store.getState())
     if (!loggedIn && path !== '/login') {
       router.navigate('/login')
       resolve()
@@ -15,9 +15,9 @@ export default Router()
       './routes/login.js'
       )).default
   })
-  .lazy('/', async () => {
+  .lazy('/watchlist', async () => {
     return (await import(
-      /* webpackChunkName: 'bananas' */
-      './routes/bananas.js'
+      /* webpackChunkName: 'watchlist' */
+      './routes/watchlist.js'
       )).default
   })

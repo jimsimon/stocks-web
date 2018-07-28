@@ -9,7 +9,8 @@ import '@material/mwc-icon'
 import { connect } from '../../mixins/connect'
 import '../stocks-app/stocks-app.js'
 import styles from './login-view.css'
-import {login, navigateToDashboard} from "../../store/actions";
+import {login} from "../../store/branches/authentication/actions";
+import {navigateToWatchlist} from "../../store/branches/navigation/actions";
 
 class LoginView extends LitElement {
   static get properties () {
@@ -17,10 +18,6 @@ class LoginView extends LitElement {
       errorMessages: Object,
       login: Function
     }
-  }
-
-  constructor () {
-    super()
   }
 
   _render ({errorMessages: {username, password, non_field_errors} = {}}) {
@@ -54,22 +51,16 @@ class LoginView extends LitElement {
     const password = this.shadowRoot.querySelector('#password')
     try {
       await this.login(username.value, password.value)
-      await this.navigateToDashboard()
+      await this.navigateToWatchlist()
     } catch (e) {
       this.errorMessages = JSON.parse(e.message)
     }
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    test: state.user.message
-  }
-}
-
 const mapDispatchToProps = {
   login,
-  navigateToDashboard
+  navigateToWatchlist
 }
 
-customElements.define('login-view', connect(LoginView, mapStateToProps, mapDispatchToProps))
+customElements.define('login-view', connect(LoginView, null, mapDispatchToProps))

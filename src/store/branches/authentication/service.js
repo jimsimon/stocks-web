@@ -1,4 +1,4 @@
-import {setToken} from "../actions/tokens";
+import {setToken} from "./actions";
 
 export default class AuthenticationService {
   constructor (robinhoodAuthenticationClient, store) {
