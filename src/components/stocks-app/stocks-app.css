@@ -1,0 +1,21 @@
+#drawer {
+  z-index: 100;
+}
+
+#drawerNav {
+  height: 100%;
+  overflow: auto;
+}
+
+#headerToolbar {
+  padding-left: 0;
+}
+
+#bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
