@@ -1,6 +1,6 @@
 import Router from 'middle-router'
 import {html} from 'lit-html'
-import '../../components/watchlist-view/watchlist-view.js'
+import '../../components/watchlist-view/connected.js'
 
 export default Router()
   .use('/', ({resolve}) => {

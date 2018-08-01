@@ -5,9 +5,9 @@ import '@polymer/app-layout/app-toolbar/app-toolbar'
 import '@polymer/app-layout/app-drawer/app-drawer'
 import '@material/mwc-button'
 import '@material/mwc-icon'
-import styles from './stocks-app.css'
+import styles from './styles.css'
 
-class StocksApp extends LitElement {
+export class StocksApp extends LitElement {
   _render(props) {
     return html`
       ${unsafeHTML(`<style>${styles}</style>`)}
@@ -43,5 +43,3 @@ class StocksApp extends LitElement {
     this.shadowRoot.querySelector('#drawer').toggle()
   }
 }
-
-customElements.define('stocks-app', StocksApp);

@@ -1,6 +1,6 @@
 import {LitElement, html} from '@polymer/lit-element'
 
-class StoreProvider extends LitElement {
+export class StoreProvider extends LitElement {
   static get properties () {
     return {
       store: Object
@@ -12,4 +12,3 @@ class StoreProvider extends LitElement {
   }
 }
 
-customElements.define('store-provider', StoreProvider)

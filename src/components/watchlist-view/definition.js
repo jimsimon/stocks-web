@@ -6,15 +6,10 @@ import '@polymer/app-layout/app-drawer/app-drawer'
 import '@polymer/paper-input/paper-input'
 import '@material/mwc-button'
 import '@material/mwc-icon'
-import { connect } from '../../mixins/connect'
-import '../stocks-app/stocks-app.js'
-import styles from './watchlist-view.css'
-import {selectWatchlist} from "../../store/branches/watchlist/selectors";
-import {fetchWatchlist} from "../../store/branches/watchlist/actions";
-import {selectInstruments} from "../../store/branches/instruments/selectors";
-import {fetchInstruments} from "../../store/branches/instruments/actions";
+import '../stocks-app/connected.js'
+import styles from './styles.css'
 
-class WatchlistView extends LitElement {
+export class WatchlistView extends LitElement {
   static get properties () {
     return {
       watchlist: Object,
@@ -47,19 +42,21 @@ class WatchlistView extends LitElement {
   _render ({watchlist, instruments}) {
     return html`
       ${unsafeHTML(`<style>${styles}</style>`)}
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Last</th>
-            <th>Change</th>
-            <th>Change %</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${this._renderRows(instruments)}
-        </tbody>
-      </table>
+      <stocks-app>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Last</th>
+              <th>Change</th>
+              <th>Change %</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${this._renderRows(instruments)}
+          </tbody>
+        </table>
+      </stocks-app>
     `
   }
 
@@ -84,17 +81,3 @@ class WatchlistView extends LitElement {
     }, 3000)
   }
 }
-
-function mapStateToProps (state) {
-  return {
-    instruments: selectInstruments(state),
-    watchlist: selectWatchlist(state)
-  }
-}
-
-const mapDispatchToProps = {
-  fetchInstruments,
-  fetchWatchlist
-}
-
-customElements.define('watchlist-view', connect(WatchlistView, mapStateToProps, mapDispatchToProps))

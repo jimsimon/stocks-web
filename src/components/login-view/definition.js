@@ -6,13 +6,9 @@ import '@polymer/app-layout/app-drawer/app-drawer'
 import '@polymer/paper-input/paper-input'
 import '@material/mwc-button'
 import '@material/mwc-icon'
-import { connect } from '../../mixins/connect'
-import '../stocks-app/stocks-app.js'
-import styles from './login-view.css'
-import {login} from "../../store/branches/authentication/actions";
-import {navigateToWatchlist} from "../../store/branches/navigation/actions";
+import styles from './styles.css'
 
-class LoginView extends LitElement {
+export class LoginView extends LitElement {
   static get properties () {
     return {
       errorMessages: Object,
@@ -57,10 +53,3 @@ class LoginView extends LitElement {
     }
   }
 }
-
-const mapDispatchToProps = {
-  login,
-  navigateToWatchlist
-}
-
-customElements.define('login-view', connect(LoginView, null, mapDispatchToProps))

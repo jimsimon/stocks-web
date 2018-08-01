@@ -1,7 +1,7 @@
 import router from './router/index'
 import store from './store/index'
 import {render, html} from 'lit-html/lib/lit-extended'
-import './components/store-provider/store-provider'
+import './components/store-provider/connected'
 
 router.on('route', async (args, routing) => {
   Object.assign(args.context, { store })
