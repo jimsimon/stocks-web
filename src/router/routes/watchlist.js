@@ -4,5 +4,5 @@ import '../../components/watchlist-view/watchlist-view.js'
 
 export default Router()
   .use('/', ({resolve}) => {
-    resolve(html`<watchlist-view>Bananas</watchlist-view>`)
+    resolve(html`<watchlist-view></watchlist-view>`)
   })
