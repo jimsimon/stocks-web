@@ -29,7 +29,7 @@ export class StocksApp extends LitElement {
           </ul>
         </nav>
       </app-drawer>
-      <div>
+      <div id="content">
         <slot></slot>
       </div>
       <nav id="bottomNav">

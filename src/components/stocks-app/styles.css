@@ -1,3 +1,7 @@
+:host {
+  width: 100%;
+}
+
 #drawer {
   z-index: 100;
 }
@@ -5,6 +9,10 @@
 #drawerNav {
   height: 100%;
   overflow: auto;
+}
+
+#content {
+  margin: 0 1rem 3rem;
 }
 
 #headerToolbar {
@@ -18,4 +26,11 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+a {
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+  text-align: center;
 }

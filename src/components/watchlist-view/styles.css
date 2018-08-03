@@ -1,15 +1,28 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-mwc-button {
-  margin-top: 1rem;
+tr {
+  border-bottom: 1px solid lightgray;
 }
 
-#errorContainer {
-  color: red;
+th {
+  text-align: start;
+}
+
+td, th {
+  padding: 0.5rem 0.75rem;
+}
+
+.number {
+  text-align: end;
+}
+
+.positive {
+  color: #21ce99;
+}
+
+.negative {
+  color: #f45531;
 }

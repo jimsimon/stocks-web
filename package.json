@@ -29,6 +29,8 @@
     "@polymer/lit-element": "^0.5.1",
     "@polymer/paper-input": "^3.0.0-pre.21",
     "@webcomponents/webcomponentsjs": "^2.0.2",
+    "big.js": "^5.1.2",
+    "classnames": "^2.2.6",
     "lato-font": "^3.0.0",
     "middle-router": "^2.2.0",
     "redux": "^4.0.0",

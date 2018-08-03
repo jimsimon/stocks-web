@@ -1,5 +1,7 @@
 import {LitElement, html} from '@polymer/lit-element'
 import {unsafeHTML} from 'lit-html/lib/unsafe-html'
+import Big from 'big.js'
+import classnames from 'classnames'
 import '@polymer/app-layout/app-header/app-header'
 import '@polymer/app-layout/app-toolbar/app-toolbar'
 import '@polymer/app-layout/app-drawer/app-drawer'
@@ -47,9 +49,9 @@ export class WatchlistView extends LitElement {
           <thead>
             <tr>
               <th>Symbol</th>
-              <th>Last</th>
-              <th>Change</th>
-              <th>Change %</th>
+              <th class="number">Last</th>
+              <th class="number">Chg</th>
+              <th class="number">Chg %</th>
             </tr>
           </thead>
           <tbody>
@@ -62,12 +64,19 @@ export class WatchlistView extends LitElement {
 
   _renderRows (instruments) {
     return instruments.map(i => {
+      const delta = this._delta(i).toFixed(2);
+      const deltaClasses = classnames({
+        number: true,
+        delta: true,
+        positive: delta > 0,
+        negative: delta < 0
+      })
       return html`
         <tr>
           <td>${i.symbol}</td>
-          <td>${i.last_trade_price}</td>
-          <td>${i.symbol}</td>
-          <td>${i.symbol}</td>
+          <td class="number">${Big(i.last_trade_price).toFixed(2)}</td>
+          <td class$="${deltaClasses}">${delta}</td>
+          <td class$="${deltaClasses}">${this._deltaPercent(i).toFixed(2)}</td>
         </tr>
       `
     })
@@ -79,5 +88,13 @@ export class WatchlistView extends LitElement {
       await this.fetchInstruments(instruments)
       this._fetchInstruments()
     }, 3000)
+  }
+
+  _delta (i) {
+    return Big(i.last_trade_price).minus(i.previous_close)
+  }
+
+  _deltaPercent (i) {
+    return Big(this._delta(i)).div(i.previous_close).times(100)
   }
 }
