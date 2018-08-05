@@ -33,4 +33,6 @@ a {
   line-height: 2rem;
   width: 100%;
   text-align: center;
+  background: white;
+  border-top: 1px solid lightgray;
 }

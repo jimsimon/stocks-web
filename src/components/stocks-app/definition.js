@@ -33,8 +33,8 @@ export class StocksApp extends LitElement {
         <slot></slot>
       </div>
       <nav id="bottomNav">
-        <a>Watchlist</a>
-        <a>Portfolio</a>
+        <a href="/watchlist">Watchlist</a>
+        <a href="/positions">Positions</a>
       </nav>
     `
   }
