@@ -5,8 +5,9 @@ const {join, resolve} = require('path');
 const VENDOR_PATH = 'vendor';
 
 module.exports = {
+  context: resolve(__dirname, '../src'),
   entry: {
-    bundle: './src/index.js'
+    bundle: './index.js'
   },
   output: {
     path: resolve(__dirname, '../dist'),
@@ -62,7 +63,7 @@ module.exports = {
       }]
     ),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './index.html'
     })
   ]
 };

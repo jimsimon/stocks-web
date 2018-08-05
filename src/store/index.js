@@ -19,6 +19,7 @@ const store = createStore(
     instruments: instrumentsReducer,
     watchlist: watchlistReducer
   }),
+  module.hot ? JSON.parse(sessionStorage.getItem('state')) || undefined : {},
   applyMiddleware(dynamicMiddlewares)
 )
 

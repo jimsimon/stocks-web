@@ -7,7 +7,6 @@ export default function reducer (state = initialize(), {type, payload, error}) {
 
   switch (type) {
     case SET_TOKEN:
-      sessionStorage.setItem('token', payload)
       return Object.assign({}, state, {
         token: payload
       })
@@ -18,7 +17,5 @@ export default function reducer (state = initialize(), {type, payload, error}) {
 }
 
 function initialize () {
-  return {
-    token: sessionStorage.getItem('token')
-  }
+  return {}
 }
