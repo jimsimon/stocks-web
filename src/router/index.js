@@ -21,3 +21,9 @@ export default Router()
       './routes/watchlist.js'
       )).default
   })
+  .lazy(async () => {
+    return (await import(
+      /* webpackChunkName: 'watchlist' */
+      './routes/page-not-found.js'
+      )).default
+  })
