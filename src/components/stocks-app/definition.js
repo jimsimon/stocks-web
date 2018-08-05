@@ -8,6 +8,13 @@ import '@material/mwc-icon'
 import styles from './styles.css'
 
 export class StocksApp extends LitElement {
+  static get properties () {
+    return {
+      navigateToWatchlist: Function,
+      navigateToPositions: Function
+    }
+  }
+
   _render(props) {
     return html`
       ${unsafeHTML(`<style>${styles}</style>`)}
@@ -33,8 +40,8 @@ export class StocksApp extends LitElement {
         <slot></slot>
       </div>
       <nav id="bottomNav">
-        <a href="/watchlist">Watchlist</a>
-        <a href="/positions">Positions</a>
+        <button on-click="${this.navigateToWatchlist}">Watchlist</button>
+        <button on-click="${this.navigateToPositions}">Positions</button>
       </nav>
     `
   }
