@@ -1,4 +1,4 @@
-import {SET_WATCHLIST} from "./action-types";
+import {SET_POSITIONS} from "./action-types";
 
 export default function reducer (state = init(), {type, payload, error}) {
   if (error) {
@@ -6,7 +6,7 @@ export default function reducer (state = init(), {type, payload, error}) {
   }
 
   switch (type) {
-    case SET_WATCHLIST:
+    case SET_POSITIONS:
       return Object.assign({}, state, payload)
 
     default:

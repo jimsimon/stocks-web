@@ -6,9 +6,11 @@ import {selectInstruments} from "../../store/branches/instruments/selectors";
 import {WatchlistView} from "./definition";
 
 function mapStateToProps (state) {
+  const watchlist = selectWatchlist(state)
+  const instruments = watchlist.results.map(r => r.instrument)
   return {
-    instruments: selectInstruments(state),
-    watchlist: selectWatchlist(state)
+    instruments: selectInstruments(state, instruments),
+    watchlist: watchlist
   }
 }
 

@@ -21,6 +21,12 @@ export default Router()
       './routes/watchlist.js'
       )).default
   })
+  .lazy('/positions', async () => {
+    return (await import(
+      /* webpackChunkName: 'watchlist' */
+      './routes/positions.js'
+      )).default
+  })
   .lazy(async () => {
     return (await import(
       /* webpackChunkName: 'watchlist' */
